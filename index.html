@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui veut gagner des Airdrops</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Rideau d'animation -->
+    <div id="curtain"></div>
 
+    <!-- État 1 : Accueil -->
+    <div id="screen-home" class="screen active">
+        <div class="content">
+            <h1>Qui veut gagner des Airdrops</h1>
+            <div class="mage-container">
+                <div class="mage-placeholder">Mage Animateur</div>
+            </div>
+            <button class="btn-primary" onclick="startQuiz()">Commencer le test</button>
+        </div>
+    </div>
+
+    <!-- État 2-5 : Questions -->
+    <div id="screen-question" class="screen">
+        <div class="content">
+            <div class="question-header">
+                <div class="mage-placeholder small">Mage</div>
+                <div class="question-number" id="questionNumber">Question 1/4</div>
+            </div>
+            
+            <h2 id="questionText">Question</h2>
+            
+            <div id="answersContainer" class="answers-container"></div>
+            
+            <button class="btn-primary" id="nextBtn" onclick="nextQuestion()">Suivant</button>
+        </div>
+    </div>
+
+    <!-- État 6 : Opt-in -->
+    <div id="screen-optin" class="screen">
+        <div class="content">
+            <h2>Dernière étape avant tes résultats !</h2>
+            <div class="mage-container">
+                <div class="mage-placeholder">Mage Opt-in</div>
+            </div>
+            <p>Inscris-toi pour recevoir les meilleurs airdrops et stratégies DeFi chaque semaine !</p>
+            
+            <div class="optin-form">
+                <input type="email" id="emailInput" placeholder="ton@email.com">
+                <button class="btn-primary" onclick="subscribeAndShowResults()">S'inscrire et voir mes résultats</button>
+                <button class="btn-secondary" onclick="skipToResults()">Passer et voir les résultats</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- État 7 : Résultats -->
+    <div id="screen-results" class="screen">
+        <div class="content scrollable">
+            <h2>Tes Airdrops recommandés</h2>
+            <div class="mage-container">
+                <div class="mage-placeholder small">Mage Résultats</div>
+            </div>
+            <div id="resultsContainer"></div>
+            <button class="btn-primary" onclick="restartQuiz()">Recommencer le test</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
